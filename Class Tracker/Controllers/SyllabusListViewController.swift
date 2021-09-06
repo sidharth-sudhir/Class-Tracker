@@ -41,7 +41,7 @@ class SyllabusListViewController: SwipeTableViewController {
         if let syllabusItem = syllabusItems?[indexPath.row] {
             cell.textLabel?.text = syllabusItem.title
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 25.0)
-            cell.detailTextLabel?.text = String(format: "%.1f", syllabusItem.weight)
+            cell.detailTextLabel?.text = String(format: "0.0 / %.1f", syllabusItem.weight)
             cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15.0)
             cell.detailTextLabel?.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         } else {
@@ -52,7 +52,15 @@ class SyllabusListViewController: SwipeTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Syllabus Item was selected. The index was simply: \(indexPath.row)")
+        performSegue(withIdentifier: "goToGrades", sender: self)
+    }
+ 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! GradeListViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.selectedSyllabus = syllabusItems?[indexPath.row]
+        }
     }
     
     func loadSyllabusItems() {

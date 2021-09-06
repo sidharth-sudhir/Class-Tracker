@@ -23,6 +23,7 @@
 		42F910C526E60220002D442D /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F910C426E60220002D442D /* Grade.swift */; };
 		42F910EF26E60470002D442D /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = 42F910EE26E60470002D442D /* TextFieldEffects */; };
 		42F910F126E607DC002D442D /* GradeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F910F026E607DC002D442D /* GradeListViewController.swift */; };
+		42F910F726E6C1DF002D442D /* NewGradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F910F626E6C1DF002D442D /* NewGradeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		42B0735226E5AF3800C2B198 /* Syllabus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Syllabus.swift; sourceTree = "<group>"; };
 		42F910C426E60220002D442D /* Grade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade.swift; sourceTree = "<group>"; };
 		42F910F026E607DC002D442D /* GradeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeListViewController.swift; sourceTree = "<group>"; };
+		42F910F626E6C1DF002D442D /* NewGradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGradeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				420C80E726DB52B0005B235F /* SubjectListViewController.swift */,
 				42B0733B26E57C2700C2B198 /* SyllabusListViewController.swift */,
 				42F910F026E607DC002D442D /* GradeListViewController.swift */,
+				42F910F626E6C1DF002D442D /* NewGradeViewController.swift */,
 				42B0734E26E5AE9B00C2B198 /* SwipeTableViewController.swift */,
 			);
 			path = Controllers;
@@ -213,6 +216,7 @@
 				42B0733C26E57C2700C2B198 /* SyllabusListViewController.swift in Sources */,
 				42B0735126E5AF2E00C2B198 /* Subject.swift in Sources */,
 				420C80E426DB52B0005B235F /* AppDelegate.swift in Sources */,
+				42F910F726E6C1DF002D442D /* NewGradeViewController.swift in Sources */,
 				42B0733E26E57EE500C2B198 /* SceneDelegate.swift in Sources */,
 				42B0734F26E5AE9B00C2B198 /* SwipeTableViewController.swift in Sources */,
 			);

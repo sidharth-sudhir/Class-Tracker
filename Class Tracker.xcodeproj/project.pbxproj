@@ -3,27 +3,40 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		420C80E426DB52B0005B235F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420C80E326DB52B0005B235F /* AppDelegate.swift */; };
-		420C80E626DB52B0005B235F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420C80E526DB52B0005B235F /* SceneDelegate.swift */; };
-		420C80E826DB52B0005B235F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420C80E726DB52B0005B235F /* ViewController.swift */; };
+		420C80E826DB52B0005B235F /* SubjectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420C80E726DB52B0005B235F /* SubjectListViewController.swift */; };
 		420C80EB26DB52B0005B235F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 420C80E926DB52B0005B235F /* Main.storyboard */; };
 		420C80ED26DB52B2005B235F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 420C80EC26DB52B2005B235F /* Assets.xcassets */; };
 		420C80F026DB52B2005B235F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 420C80EE26DB52B2005B235F /* LaunchScreen.storyboard */; };
+		42B0733C26E57C2700C2B198 /* SyllabusListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B0733B26E57C2700C2B198 /* SyllabusListViewController.swift */; };
+		42B0733E26E57EE500C2B198 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B0733D26E57EE500C2B198 /* SceneDelegate.swift */; };
+		42B0734026E596CC00C2B198 /* NewClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B0733F26E596CC00C2B198 /* NewClassViewController.swift */; };
+		42B0734326E599CE00C2B198 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 42B0734226E599CE00C2B198 /* Realm */; };
+		42B0734526E599CE00C2B198 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 42B0734426E599CE00C2B198 /* RealmSwift */; };
+		42B0734D26E5A8F100C2B198 /* SwipeCellKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42B0734C26E5A8F100C2B198 /* SwipeCellKit */; };
+		42B0734F26E5AE9B00C2B198 /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B0734E26E5AE9B00C2B198 /* SwipeTableViewController.swift */; };
+		42B0735126E5AF2E00C2B198 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B0735026E5AF2E00C2B198 /* Subject.swift */; };
+		42B0735326E5AF3800C2B198 /* Syllabus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B0735226E5AF3800C2B198 /* Syllabus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		420C80E026DB52B0005B235F /* Class Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Class Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		420C80E326DB52B0005B235F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		420C80E526DB52B0005B235F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		420C80E726DB52B0005B235F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		420C80E726DB52B0005B235F /* SubjectListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectListViewController.swift; sourceTree = "<group>"; };
 		420C80EA26DB52B0005B235F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		420C80EC26DB52B2005B235F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		420C80EF26DB52B2005B235F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		420C80F126DB52B2005B235F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42B0733B26E57C2700C2B198 /* SyllabusListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusListViewController.swift; sourceTree = "<group>"; };
+		42B0733D26E57EE500C2B198 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		42B0733F26E596CC00C2B198 /* NewClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClassViewController.swift; sourceTree = "<group>"; };
+		42B0734E26E5AE9B00C2B198 /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
+		42B0735026E5AF2E00C2B198 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		42B0735226E5AF3800C2B198 /* Syllabus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Syllabus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +44,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42B0734526E599CE00C2B198 /* RealmSwift in Frameworks */,
+				42B0734D26E5A8F100C2B198 /* SwipeCellKit in Frameworks */,
+				42B0734326E599CE00C2B198 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +72,52 @@
 		420C80E226DB52B0005B235F /* Class Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				420C80E326DB52B0005B235F /* AppDelegate.swift */,
-				420C80E526DB52B0005B235F /* SceneDelegate.swift */,
-				420C80E726DB52B0005B235F /* ViewController.swift */,
-				420C80E926DB52B0005B235F /* Main.storyboard */,
-				420C80EC26DB52B2005B235F /* Assets.xcassets */,
-				420C80EE26DB52B2005B235F /* LaunchScreen.storyboard */,
+				42B0733D26E57EE500C2B198 /* SceneDelegate.swift */,
 				420C80F126DB52B2005B235F /* Info.plist */,
+				420C80E326DB52B0005B235F /* AppDelegate.swift */,
+				42B0733826E56B6900C2B198 /* Model */,
+				42B0733926E56B6F00C2B198 /* Views */,
+				42B0733726E56B6000C2B198 /* Controllers */,
+				42B0733A26E56B9000C2B198 /* Supporting Files */,
 			);
 			path = "Class Tracker";
+			sourceTree = "<group>";
+		};
+		42B0733726E56B6000C2B198 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				420C80E726DB52B0005B235F /* SubjectListViewController.swift */,
+				42B0733B26E57C2700C2B198 /* SyllabusListViewController.swift */,
+				42B0733F26E596CC00C2B198 /* NewClassViewController.swift */,
+				42B0734E26E5AE9B00C2B198 /* SwipeTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		42B0733826E56B6900C2B198 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				42B0735026E5AF2E00C2B198 /* Subject.swift */,
+				42B0735226E5AF3800C2B198 /* Syllabus.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		42B0733926E56B6F00C2B198 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				420C80E926DB52B0005B235F /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		42B0733A26E56B9000C2B198 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				420C80EE26DB52B2005B235F /* LaunchScreen.storyboard */,
+				420C80EC26DB52B2005B235F /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +136,11 @@
 			dependencies = (
 			);
 			name = "Class Tracker";
+			packageProductDependencies = (
+				42B0734226E599CE00C2B198 /* Realm */,
+				42B0734426E599CE00C2B198 /* RealmSwift */,
+				42B0734C26E5A8F100C2B198 /* SwipeCellKit */,
+			);
 			productName = "Class Tracker";
 			productReference = 420C80E026DB52B0005B235F /* Class Tracker.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +168,10 @@
 				Base,
 			);
 			mainGroup = 420C80D726DB52B0005B235F;
+			packageReferences = (
+				42B0734126E599CE00C2B198 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				42B0734B26E5A8F100C2B198 /* XCRemoteSwiftPackageReference "SwipeCellKit" */,
+			);
 			productRefGroup = 420C80E126DB52B0005B235F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,9 +199,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				420C80E826DB52B0005B235F /* ViewController.swift in Sources */,
+				42B0735326E5AF3800C2B198 /* Syllabus.swift in Sources */,
+				420C80E826DB52B0005B235F /* SubjectListViewController.swift in Sources */,
+				42B0733C26E57C2700C2B198 /* SyllabusListViewController.swift in Sources */,
+				42B0735126E5AF2E00C2B198 /* Subject.swift in Sources */,
 				420C80E426DB52B0005B235F /* AppDelegate.swift in Sources */,
-				420C80E626DB52B0005B235F /* SceneDelegate.swift in Sources */,
+				42B0733E26E57EE500C2B198 /* SceneDelegate.swift in Sources */,
+				42B0734F26E5AE9B00C2B198 /* SwipeTableViewController.swift in Sources */,
+				42B0734026E596CC00C2B198 /* NewClassViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +408,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		42B0734126E599CE00C2B198 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.14.0;
+			};
+		};
+		42B0734B26E5A8F100C2B198 /* XCRemoteSwiftPackageReference "SwipeCellKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwipeCellKit/SwipeCellKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		42B0734226E599CE00C2B198 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42B0734126E599CE00C2B198 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		42B0734426E599CE00C2B198 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42B0734126E599CE00C2B198 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+		42B0734C26E5A8F100C2B198 /* SwipeCellKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42B0734B26E5A8F100C2B198 /* XCRemoteSwiftPackageReference "SwipeCellKit" */;
+			productName = SwipeCellKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 420C80D826DB52B0005B235F /* Project object */;
 }

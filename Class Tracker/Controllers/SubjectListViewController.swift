@@ -14,15 +14,10 @@ class SubjectListViewController: SwipeTableViewController {
     
     var subjects: Results<Subject>?
     
-    @IBOutlet weak var addClassButton: UIButton!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadSubjects()
-        
-        addClassButton.clipsToBounds = true
-        addClassButton.layer.cornerRadius = 25
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,13 +44,45 @@ class SubjectListViewController: SwipeTableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if sender as? NSObject != self.addClassButton {
-            let destinationVC = segue.destination as! SyllabusListViewController
-            
-            if let indexPath = tableView.indexPathForSelectedRow {
-                destinationVC.selectedSubject = subjects?[indexPath.row]
-            }   
+        let destinationVC = segue.destination as! SyllabusListViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.selectedSubject = subjects?[indexPath.row]
         }
+    }
+    
+    func save(subject: Subject) {
+        do {
+            try realm.write {
+                realm.add(subject)
+            }
+        } catch {
+            print("Error saving subject \(error)")
+        }
+        
+        tableView.reloadData()
+    }
+    
+    @IBAction func addSubjectPressed(_ sender: Any) {
+        var textField = UITextField()
+        
+        let alert = UIAlertController(title: "Add New Class", message: "", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Add", style: .default) { (action) in
+            let newSubject = Subject()
+            newSubject.name = textField.text!
+            
+            self.save(subject: newSubject)
+        }
+        
+        alert.addAction(action)
+        
+        alert.addTextField { (field) in
+            textField = field
+            textField.placeholder = "Add a new Subject"
+        }
+        
+        present(alert, animated: true, completion: nil)
     }
     
     

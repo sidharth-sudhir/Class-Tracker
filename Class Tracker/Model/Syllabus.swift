@@ -10,5 +10,7 @@ import RealmSwift
 
 class Syllabus: Object {
     @objc dynamic var title: String = ""
+    @objc dynamic var weight: Float = 0.0
+    let grades = List<Grade>()
     var parentSubject = LinkingObjects(fromType: Subject.self, property: "syllabus")
 }

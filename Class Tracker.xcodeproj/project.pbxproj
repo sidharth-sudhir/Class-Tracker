@@ -14,13 +14,15 @@
 		420C80F026DB52B2005B235F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 420C80EE26DB52B2005B235F /* LaunchScreen.storyboard */; };
 		42B0733C26E57C2700C2B198 /* SyllabusListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B0733B26E57C2700C2B198 /* SyllabusListViewController.swift */; };
 		42B0733E26E57EE500C2B198 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B0733D26E57EE500C2B198 /* SceneDelegate.swift */; };
-		42B0734026E596CC00C2B198 /* NewClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B0733F26E596CC00C2B198 /* NewClassViewController.swift */; };
 		42B0734326E599CE00C2B198 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 42B0734226E599CE00C2B198 /* Realm */; };
 		42B0734526E599CE00C2B198 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 42B0734426E599CE00C2B198 /* RealmSwift */; };
 		42B0734D26E5A8F100C2B198 /* SwipeCellKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42B0734C26E5A8F100C2B198 /* SwipeCellKit */; };
 		42B0734F26E5AE9B00C2B198 /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B0734E26E5AE9B00C2B198 /* SwipeTableViewController.swift */; };
 		42B0735126E5AF2E00C2B198 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B0735026E5AF2E00C2B198 /* Subject.swift */; };
 		42B0735326E5AF3800C2B198 /* Syllabus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B0735226E5AF3800C2B198 /* Syllabus.swift */; };
+		42F910C526E60220002D442D /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F910C426E60220002D442D /* Grade.swift */; };
+		42F910EF26E60470002D442D /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = 42F910EE26E60470002D442D /* TextFieldEffects */; };
+		42F910F126E607DC002D442D /* GradeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F910F026E607DC002D442D /* GradeListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,10 +35,11 @@
 		420C80F126DB52B2005B235F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42B0733B26E57C2700C2B198 /* SyllabusListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusListViewController.swift; sourceTree = "<group>"; };
 		42B0733D26E57EE500C2B198 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		42B0733F26E596CC00C2B198 /* NewClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClassViewController.swift; sourceTree = "<group>"; };
 		42B0734E26E5AE9B00C2B198 /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
 		42B0735026E5AF2E00C2B198 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		42B0735226E5AF3800C2B198 /* Syllabus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Syllabus.swift; sourceTree = "<group>"; };
+		42F910C426E60220002D442D /* Grade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade.swift; sourceTree = "<group>"; };
+		42F910F026E607DC002D442D /* GradeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +48,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42B0734526E599CE00C2B198 /* RealmSwift in Frameworks */,
+				42F910EF26E60470002D442D /* TextFieldEffects in Frameworks */,
 				42B0734D26E5A8F100C2B198 /* SwipeCellKit in Frameworks */,
 				42B0734326E599CE00C2B198 /* Realm in Frameworks */,
 			);
@@ -88,7 +92,7 @@
 			children = (
 				420C80E726DB52B0005B235F /* SubjectListViewController.swift */,
 				42B0733B26E57C2700C2B198 /* SyllabusListViewController.swift */,
-				42B0733F26E596CC00C2B198 /* NewClassViewController.swift */,
+				42F910F026E607DC002D442D /* GradeListViewController.swift */,
 				42B0734E26E5AE9B00C2B198 /* SwipeTableViewController.swift */,
 			);
 			path = Controllers;
@@ -99,6 +103,7 @@
 			children = (
 				42B0735026E5AF2E00C2B198 /* Subject.swift */,
 				42B0735226E5AF3800C2B198 /* Syllabus.swift */,
+				42F910C426E60220002D442D /* Grade.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 				42B0734226E599CE00C2B198 /* Realm */,
 				42B0734426E599CE00C2B198 /* RealmSwift */,
 				42B0734C26E5A8F100C2B198 /* SwipeCellKit */,
+				42F910EE26E60470002D442D /* TextFieldEffects */,
 			);
 			productName = "Class Tracker";
 			productReference = 420C80E026DB52B0005B235F /* Class Tracker.app */;
@@ -171,6 +177,7 @@
 			packageReferences = (
 				42B0734126E599CE00C2B198 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 				42B0734B26E5A8F100C2B198 /* XCRemoteSwiftPackageReference "SwipeCellKit" */,
+				42F910ED26E60470002D442D /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
 			);
 			productRefGroup = 420C80E126DB52B0005B235F /* Products */;
 			projectDirPath = "";
@@ -200,13 +207,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				42B0735326E5AF3800C2B198 /* Syllabus.swift in Sources */,
+				42F910F126E607DC002D442D /* GradeListViewController.swift in Sources */,
+				42F910C526E60220002D442D /* Grade.swift in Sources */,
 				420C80E826DB52B0005B235F /* SubjectListViewController.swift in Sources */,
 				42B0733C26E57C2700C2B198 /* SyllabusListViewController.swift in Sources */,
 				42B0735126E5AF2E00C2B198 /* Subject.swift in Sources */,
 				420C80E426DB52B0005B235F /* AppDelegate.swift in Sources */,
 				42B0733E26E57EE500C2B198 /* SceneDelegate.swift in Sources */,
 				42B0734F26E5AE9B00C2B198 /* SwipeTableViewController.swift in Sources */,
-				42B0734026E596CC00C2B198 /* NewClassViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +434,14 @@
 				minimumVersion = 2.7.1;
 			};
 		};
+		42F910ED26E60470002D442D /* XCRemoteSwiftPackageReference "TextFieldEffects" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/raulriera/TextFieldEffects";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -443,6 +459,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 42B0734B26E5A8F100C2B198 /* XCRemoteSwiftPackageReference "SwipeCellKit" */;
 			productName = SwipeCellKit;
+		};
+		42F910EE26E60470002D442D /* TextFieldEffects */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42F910ED26E60470002D442D /* XCRemoteSwiftPackageReference "TextFieldEffects" */;
+			productName = TextFieldEffects;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

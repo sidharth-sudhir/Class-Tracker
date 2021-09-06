@@ -40,7 +40,7 @@ class SyllabusListViewController: SwipeTableViewController {
         
         if let syllabusItem = syllabusItems?[indexPath.row] {
             cell.textLabel?.text = syllabusItem.title
-            cell.textLabel?.font = UIFont.systemFont(ofSize: 20.0)
+            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 25.0)
             cell.detailTextLabel?.text = String(format: "%.1f", syllabusItem.weight)
             cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15.0)
             cell.detailTextLabel?.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
@@ -98,12 +98,12 @@ class SyllabusListViewController: SwipeTableViewController {
         
         alert.addTextField { alertTextField in
             titleTextField = alertTextField
-            titleTextField.placeholder = "Create new syllabus item"
+            titleTextField.placeholder = "Create new syllabus item (i.e Tests)"
         }
         
         alert.addTextField { alertTextField in
             weightTextField = alertTextField
-            weightTextField.placeholder = "Enter weight of syllabus item"
+            weightTextField.placeholder = "Enter weight of syllabus item (i.e 35)"
         }
         
         alert.addAction(action)

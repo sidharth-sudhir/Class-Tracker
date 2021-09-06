@@ -34,6 +34,8 @@ class SubjectListViewController: SwipeTableViewController {
         
         if let subject = subjects?[indexPath.row] {
             cell.textLabel?.text = subject.name
+            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 25.0)
+            
         }
         
         return cell
@@ -79,7 +81,7 @@ class SubjectListViewController: SwipeTableViewController {
         
         alert.addTextField { (field) in
             textField = field
-            textField.placeholder = "Add a new Subject"
+            textField.placeholder = "Add a new Subject (i.e Math)"
         }
         
         present(alert, animated: true, completion: nil)

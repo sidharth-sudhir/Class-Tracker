@@ -59,7 +59,11 @@ class SyllabusListViewController: SwipeTableViewController {
         if let syllabusItem = syllabusItems?[indexPath.row] {
             cell.textLabel?.text = syllabusItem.title
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 25.0)
-            cell.detailTextLabel?.text = String(format: "%.1f", syllabusItem.syllabusGrade) + " / " + String(format: "%.1f", syllabusItem.weight)
+            if syllabusItem.syllabusGrade == -1.0 {
+                cell.detailTextLabel?.text = "-- / " + String(format: "%.1f", syllabusItem.weight) + " - ??%"
+            } else {
+                cell.detailTextLabel?.text = String(format: "%.1f", syllabusItem.syllabusGrade) + " / " + String(format: "%.1f", syllabusItem.weight) + String(format: " - %.1f", syllabusItem.syllabusGrade/syllabusItem.weight * 100) + "%"
+            }
             cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15.0)
             cell.detailTextLabel?.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
             cell.textLabel?.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -159,7 +163,7 @@ class SyllabusListViewController: SwipeTableViewController {
                 totalGrade += grade.percentage
             }
             
-            var weightedGrade: Float = syllabusItem.weight
+            var weightedGrade: Float = -1.0
             if counter > 0 {
                 weightedGrade = (totalGrade/counter)/100 * syllabusItem.weight
             }
@@ -186,14 +190,16 @@ class SyllabusListViewController: SwipeTableViewController {
             syllabusWeights = 100.0
         } else {
             for syllabusItem in syllabusItems! {
-                syllabusWeights += syllabusItem.weight
-                finalGrade += syllabusItem.syllabusGrade
+                if syllabusItem.syllabusGrade != -1.0 {
+                    syllabusWeights += syllabusItem.weight
+                    finalGrade += syllabusItem.syllabusGrade
+                }
             }
         }
         
         do {
             try realm.write {
-                selectedSubject?.subjectGrade = finalGrade/syllabusWeights * 100
+                selectedSubject?.subjectGrade = syllabusWeights != 0 ? finalGrade/syllabusWeights * 100 : 100.0
             }
         } catch {
             print("Error saving final grade: \(error)")

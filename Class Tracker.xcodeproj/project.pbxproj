@@ -21,7 +21,6 @@
 		42B0735126E5AF2E00C2B198 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B0735026E5AF2E00C2B198 /* Subject.swift */; };
 		42B0735326E5AF3800C2B198 /* Syllabus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B0735226E5AF3800C2B198 /* Syllabus.swift */; };
 		42F910C526E60220002D442D /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F910C426E60220002D442D /* Grade.swift */; };
-		42F910EF26E60470002D442D /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = 42F910EE26E60470002D442D /* TextFieldEffects */; };
 		42F910F126E607DC002D442D /* GradeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F910F026E607DC002D442D /* GradeListViewController.swift */; };
 		42F910F726E6C1DF002D442D /* NewGradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F910F626E6C1DF002D442D /* NewGradeViewController.swift */; };
 /* End PBXBuildFile section */
@@ -50,7 +49,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				42B0734526E599CE00C2B198 /* RealmSwift in Frameworks */,
-				42F910EF26E60470002D442D /* TextFieldEffects in Frameworks */,
 				42B0734D26E5A8F100C2B198 /* SwipeCellKit in Frameworks */,
 				42B0734326E599CE00C2B198 /* Realm in Frameworks */,
 			);
@@ -148,7 +146,6 @@
 				42B0734226E599CE00C2B198 /* Realm */,
 				42B0734426E599CE00C2B198 /* RealmSwift */,
 				42B0734C26E5A8F100C2B198 /* SwipeCellKit */,
-				42F910EE26E60470002D442D /* TextFieldEffects */,
 			);
 			productName = "Class Tracker";
 			productReference = 420C80E026DB52B0005B235F /* Class Tracker.app */;
@@ -180,7 +177,6 @@
 			packageReferences = (
 				42B0734126E599CE00C2B198 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 				42B0734B26E5A8F100C2B198 /* XCRemoteSwiftPackageReference "SwipeCellKit" */,
-				42F910ED26E60470002D442D /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
 			);
 			productRefGroup = 420C80E126DB52B0005B235F /* Products */;
 			projectDirPath = "";
@@ -438,14 +434,6 @@
 				minimumVersion = 2.7.1;
 			};
 		};
-		42F910ED26E60470002D442D /* XCRemoteSwiftPackageReference "TextFieldEffects" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/raulriera/TextFieldEffects";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.7.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -463,11 +451,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 42B0734B26E5A8F100C2B198 /* XCRemoteSwiftPackageReference "SwipeCellKit" */;
 			productName = SwipeCellKit;
-		};
-		42F910EE26E60470002D442D /* TextFieldEffects */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 42F910ED26E60470002D442D /* XCRemoteSwiftPackageReference "TextFieldEffects" */;
-			productName = TextFieldEffects;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

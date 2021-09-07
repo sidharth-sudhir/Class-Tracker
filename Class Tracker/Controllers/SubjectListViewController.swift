@@ -16,7 +16,6 @@ class SubjectListViewController: SwipeTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         loadSubjects()
     }
     
@@ -34,8 +33,12 @@ class SubjectListViewController: SwipeTableViewController {
         
         if let subject = subjects?[indexPath.row] {
             cell.textLabel?.text = subject.name
-            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 25.0)
-            
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 25.0, weight: .semibold)
+            cell.detailTextLabel?.text = String(format: "%.2f", subject.subjectGrade) + "%"
+            cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15.0)
+            cell.detailTextLabel?.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+            cell.backgroundColor = #colorLiteral(red: 0.9930666089, green: 0.9932323098, blue: 0.9930446744, alpha: 1)
+            cell.textLabel?.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         }
         
         return cell
@@ -81,6 +84,7 @@ class SubjectListViewController: SwipeTableViewController {
         
         alert.addTextField { (field) in
             textField = field
+            textField.autocapitalizationType = .words
             textField.placeholder = "Add a new Subject (i.e Math)"
         }
         
@@ -98,6 +102,12 @@ class SubjectListViewController: SwipeTableViewController {
         if let subjectForDeletion = self.subjects?[indexPath.row] {
             do {
                 try self.realm.write {
+                    for subject in subjectForDeletion.syllabus {
+                        for grade in subject.grades {
+                            self.realm.delete(grade)
+                        }
+                        self.realm.delete(subject)
+                    }
                     self.realm.delete(subjectForDeletion)
                 }
             } catch {

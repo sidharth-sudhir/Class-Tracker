@@ -25,6 +25,9 @@ class NewGradeViewController: UIViewController, DismissingViewController {
         
         saveButton.clipsToBounds = true
         saveButton.layer.cornerRadius = 10.0
+        
+        self.view.clipsToBounds = true
+        self.view.layer.cornerRadius = 10.0
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -61,4 +64,6 @@ class NewGradeViewController: UIViewController, DismissingViewController {
     
 }
 
-
+extension UIView {
+    
+}

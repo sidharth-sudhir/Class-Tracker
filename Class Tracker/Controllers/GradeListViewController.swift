@@ -55,6 +55,8 @@ class GradeListViewController: SwipeTableViewController, HomeViewController {
             cell.detailTextLabel?.text = String(format: "%.1f", grade.percentage) + "%"
             cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15.0)
             cell.detailTextLabel?.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+            cell.backgroundColor = #colorLiteral(red: 0.9930666089, green: 0.9932323098, blue: 0.9930446744, alpha: 1)
+            cell.textLabel?.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         }
         
         return cell
@@ -80,6 +82,10 @@ class GradeListViewController: SwipeTableViewController, HomeViewController {
     
     @IBAction func addNewGradePressed(_ sender: Any) {
         performSegue(withIdentifier: "goToCreateGrade", sender: self)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -14,6 +14,7 @@ class SyllabusListViewController: SwipeTableViewController {
     let realm = try! Realm()
 
     @IBOutlet weak var gradeLabel: UILabel!
+    @IBOutlet weak var warningMessage: UILabel!
     
     
     var selectedSubject: Subject? {
@@ -22,13 +23,30 @@ class SyllabusListViewController: SwipeTableViewController {
         }
     }
     
+    func verifySumOfWeights() {
+        var sum: Float = 0.0
+        for syllabus in syllabusItems! {
+            sum += syllabus.weight
+        }
+        
+        if sum == 100 {
+            warningMessage.text = "Sum of all syllabus items is 100%"
+            warningMessage.textColor = #colorLiteral(red: 0.9545845389, green: 0.8008846641, blue: 0, alpha: 1)
+        } else {
+            warningMessage.text = "Sum of all syllabus items is \(String(format: "%.1f", sum))%, not 100%"
+            warningMessage.textColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        verifySumOfWeights()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         title = selectedSubject?.name
-        navigationController?.navigationBar.prefersLargeTitles = true
+        updateSyllabusGrade()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,9 +59,11 @@ class SyllabusListViewController: SwipeTableViewController {
         if let syllabusItem = syllabusItems?[indexPath.row] {
             cell.textLabel?.text = syllabusItem.title
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 25.0)
-            cell.detailTextLabel?.text = String(format: "0.0 / %.1f", syllabusItem.weight)
+            cell.detailTextLabel?.text = String(format: "%.1f", syllabusItem.syllabusGrade) + " / " + String(format: "%.1f", syllabusItem.weight)
             cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15.0)
             cell.detailTextLabel?.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+            cell.textLabel?.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            cell.backgroundColor = #colorLiteral(red: 0.9930666089, green: 0.9932323098, blue: 0.9930446744, alpha: 1)
         } else {
             cell.textLabel?.text = "No Syllabus Iteams Added"
         }
@@ -53,6 +73,8 @@ class SyllabusListViewController: SwipeTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "goToGrades", sender: self)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -67,6 +89,7 @@ class SyllabusListViewController: SwipeTableViewController {
         syllabusItems = selectedSubject?.syllabus.sorted(byKeyPath: "title", ascending: true)
         
         tableView.reloadData()
+        verifySumOfWeights()
     }
     
     override func updateModel(at indexPath: IndexPath) {
@@ -79,6 +102,8 @@ class SyllabusListViewController: SwipeTableViewController {
                 print("Error deleting syllabus, \(error)")
             }
         }
+        
+        verifySumOfWeights()
     }
     
     @IBAction func addSyllabusItemPressed(_ sender: UIBarButtonItem) {
@@ -94,6 +119,7 @@ class SyllabusListViewController: SwipeTableViewController {
                         let newSyllabus = Syllabus()
                         newSyllabus.title = titleTextField.text!
                         newSyllabus.weight = Float(weightTextField.text!)!
+                        newSyllabus.syllabusGrade = Float(weightTextField.text!)!
                         currentSubject.syllabus.append(newSyllabus)
                     }
                 } catch {
@@ -101,21 +127,75 @@ class SyllabusListViewController: SwipeTableViewController {
                 }
             }
             
-            self.tableView.reloadData()
+            self.verifySumOfWeights()
+            self.updateSyllabusGrade()
         }
         
         alert.addTextField { alertTextField in
             titleTextField = alertTextField
+            titleTextField.autocapitalizationType = .words
             titleTextField.placeholder = "Create new syllabus item (i.e Tests)"
         }
         
         alert.addTextField { alertTextField in
             weightTextField = alertTextField
+            weightTextField.keyboardType = .numberPad
             weightTextField.placeholder = "Enter weight of syllabus item (i.e 35)"
         }
         
         alert.addAction(action)
         
         present(alert, animated: true, completion: nil)
+    }
+    
+    func updateSyllabusGrade() {
+        for syllabusItem in syllabusItems! {
+            var totalGrade: Float = 0.0
+            var counter:Float = 0
+            
+            for grade in syllabusItem.grades {
+                counter += 1
+                totalGrade += grade.percentage
+            }
+            
+            var weightedGrade: Float = syllabusItem.weight
+            if counter > 0 {
+                weightedGrade = (totalGrade/counter)/100 * syllabusItem.weight
+            }
+            
+            do {
+                try realm.write {
+                    syllabusItem.syllabusGrade = weightedGrade
+                }
+            } catch {
+                print("Error updating syllabus grade: \(error)")
+            }
+        }
+        
+        updateSubjectGrade()
+        
+        tableView.reloadData()
+    }
+    
+    func updateSubjectGrade() {
+        var finalGrade: Float = 0.0
+        if syllabusItems!.count == 0 {
+            finalGrade = 100.0
+        } else {
+            for syllabusItem in syllabusItems! {
+                
+                finalGrade += syllabusItem.syllabusGrade
+            }
+        }
+        
+        do {
+            try realm.write {
+                selectedSubject?.subjectGrade = finalGrade
+            }
+        } catch {
+            print("Error saving final grade: \(error)")
+        }
+        
+        gradeLabel.text = String(format: "%.2f", selectedSubject!.subjectGrade) + "%"
     }
 }

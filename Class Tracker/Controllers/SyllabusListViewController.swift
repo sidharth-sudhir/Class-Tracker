@@ -104,6 +104,7 @@ class SyllabusListViewController: SwipeTableViewController {
         }
         
         verifySumOfWeights()
+        updateSubjectGrade()
     }
     
     @IBAction func addSyllabusItemPressed(_ sender: UIBarButtonItem) {
@@ -139,7 +140,7 @@ class SyllabusListViewController: SwipeTableViewController {
         
         alert.addTextField { alertTextField in
             weightTextField = alertTextField
-            weightTextField.keyboardType = .numberPad
+            weightTextField.keyboardType = .decimalPad
             weightTextField.placeholder = "Enter weight of syllabus item (i.e 35)"
         }
         
@@ -179,18 +180,20 @@ class SyllabusListViewController: SwipeTableViewController {
     
     func updateSubjectGrade() {
         var finalGrade: Float = 0.0
+        var syllabusWeights: Float = 0.0
         if syllabusItems!.count == 0 {
             finalGrade = 100.0
+            syllabusWeights = 100.0
         } else {
             for syllabusItem in syllabusItems! {
-                
+                syllabusWeights += syllabusItem.weight
                 finalGrade += syllabusItem.syllabusGrade
             }
         }
         
         do {
             try realm.write {
-                selectedSubject?.subjectGrade = finalGrade
+                selectedSubject?.subjectGrade = finalGrade/syllabusWeights * 100
             }
         } catch {
             print("Error saving final grade: \(error)")

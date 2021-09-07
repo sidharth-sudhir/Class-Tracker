@@ -51,9 +51,9 @@ class GradeListViewController: SwipeTableViewController, HomeViewController {
         
         if let grade = grades?[indexPath.row] {
             cell.textLabel?.text = grade.title
-            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 25.0)
+            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 20.0)
             cell.detailTextLabel?.text = String(format: "%.1f", grade.percentage) + "%"
-            cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15.0)
+            cell.detailTextLabel?.font = UIFont.boldSystemFont(ofSize: 20.0)
             cell.detailTextLabel?.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
             cell.backgroundColor = #colorLiteral(red: 0.9930666089, green: 0.9932323098, blue: 0.9930446744, alpha: 1)
             cell.textLabel?.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)

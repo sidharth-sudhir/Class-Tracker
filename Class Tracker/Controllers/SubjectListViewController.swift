@@ -11,6 +11,7 @@ import RealmSwift
 class SubjectListViewController: SwipeTableViewController {
     
     let realm = try! Realm()
+    @IBOutlet weak var termAverage: UILabel!
     
     var gradeImages = [#imageLiteral(resourceName: "LetterAPlus"), #imageLiteral(resourceName: "LetterA"), #imageLiteral(resourceName: "LetterAMinus"), #imageLiteral(resourceName: "LetterBPlus"), #imageLiteral(resourceName: "LetterB"), #imageLiteral(resourceName: "LetterBMinus"), #imageLiteral(resourceName: "LetterCPlus"), #imageLiteral(resourceName: "LetterC"), #imageLiteral(resourceName: "LetterCMinus"), #imageLiteral(resourceName: "LetterDPlus"), #imageLiteral(resourceName: "LetterD"), #imageLiteral(resourceName: "LetterDMinus"), #imageLiteral(resourceName: "LetterF"), #imageLiteral(resourceName: "Question")]
     
@@ -19,11 +20,11 @@ class SubjectListViewController: SwipeTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadSubjects()
-        tableView.separatorStyle = .singleLine
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        updateTermAverage()
         tableView.reloadData()
     }
 
@@ -69,6 +70,7 @@ class SubjectListViewController: SwipeTableViewController {
             print("Error saving subject \(error)")
         }
         
+        updateTermAverage()
         tableView.reloadData()
     }
     
@@ -84,13 +86,14 @@ class SubjectListViewController: SwipeTableViewController {
             self.save(subject: newSubject)
         }
         
-        alert.addAction(action)
-        
         alert.addTextField { (field) in
             textField = field
             textField.autocapitalizationType = .words
             textField.placeholder = "Add a new Subject (i.e Math)"
         }
+        
+        alert.addAction(action)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         present(alert, animated: true, completion: nil)
     }
@@ -114,6 +117,7 @@ class SubjectListViewController: SwipeTableViewController {
                     }
                     self.realm.delete(subjectForDeletion)
                 }
+                updateTermAverage()
             } catch {
                 print("Error deleting subject, \(error)")
             }
@@ -150,6 +154,21 @@ class SubjectListViewController: SwipeTableViewController {
             return gradeImages[12]
         default:
             return gradeImages[13]
+        }
+    }
+    
+    func updateTermAverage() {
+        if subjects?.count == 0 {
+            termAverage.text = "Cumulative Average: 100.0%"
+        } else {
+            var sumOfGrades: Float = 0.0
+            var counter: Float = 0.0
+            for subject in subjects! {
+                sumOfGrades += subject.subjectGrade
+                counter += 1
+            }
+            
+            termAverage.text = "Cumulative Average: \(String(format: "%.1f", sumOfGrades / counter))" + "%"
         }
     }
 }

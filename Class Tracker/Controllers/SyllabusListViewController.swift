@@ -58,13 +58,13 @@ class SyllabusListViewController: SwipeTableViewController {
         
         if let syllabusItem = syllabusItems?[indexPath.row] {
             cell.textLabel?.text = syllabusItem.title
-            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 25.0)
+            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 22.5)
             if syllabusItem.syllabusGrade == -1.0 {
                 cell.detailTextLabel?.text = "-- / " + String(format: "%.1f", syllabusItem.weight) + " - ??%"
             } else {
                 cell.detailTextLabel?.text = String(format: "%.1f", syllabusItem.syllabusGrade) + " / " + String(format: "%.1f", syllabusItem.weight) + String(format: " - %.1f", syllabusItem.syllabusGrade/syllabusItem.weight * 100) + "%"
             }
-            cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15.0)
+            cell.detailTextLabel?.font = UIFont.boldSystemFont(ofSize: 15.0)
             cell.detailTextLabel?.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
             cell.textLabel?.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             cell.backgroundColor = #colorLiteral(red: 0.9930666089, green: 0.9932323098, blue: 0.9930446744, alpha: 1)
@@ -117,18 +117,34 @@ class SyllabusListViewController: SwipeTableViewController {
         
         let alert = UIAlertController(title: "Add New Syllabus Item", message: "", preferredStyle: .alert)
         
+        let label = UILabel(frame: CGRect(x: 0, y: 40, width: 270, height:18))
+        label.textAlignment = .center
+        label.textColor = .red
+        label.font = label.font.withSize(12)
+        
+        alert.view.addSubview(label)
+        label.isHidden = true
+        
         let action = UIAlertAction(title: "Add Syllabus Item", style: .default) { (action) in
             if let currentSubject = self.selectedSubject {
-                do {
-                    try self.realm.write {
-                        let newSyllabus = Syllabus()
-                        newSyllabus.title = titleTextField.text!
-                        newSyllabus.weight = Float(weightTextField.text!)!
-                        newSyllabus.syllabusGrade = Float(weightTextField.text!)!
-                        currentSubject.syllabus.append(newSyllabus)
+                if let userInput = weightTextField.text {
+                    if !userInput.isValidNumber {
+                        label.text = "Enter a valid number for syllabus weight"
+                        label.isHidden = false
+                        self.present(alert, animated: true, completion: nil)
+                    } else {
+                        do {
+                            try self.realm.write {
+                                let newSyllabus = Syllabus()
+                                newSyllabus.title = titleTextField.text!
+                                newSyllabus.weight = Float(weightTextField.text!)!
+                                newSyllabus.syllabusGrade = Float(weightTextField.text!)!
+                                currentSubject.syllabus.append(newSyllabus)
+                            }
+                        } catch {
+                            print("Error saving syllabus: \(error)")
+                        }
                     }
-                } catch {
-                    print("Error saving syllabus: \(error)")
                 }
             }
             
@@ -149,6 +165,7 @@ class SyllabusListViewController: SwipeTableViewController {
         }
         
         alert.addAction(action)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         present(alert, animated: true, completion: nil)
     }
@@ -208,3 +225,10 @@ class SyllabusListViewController: SwipeTableViewController {
         gradeLabel.text = String(format: "%.2f", selectedSubject!.subjectGrade) + "%"
     }
 }
+
+//extension String {
+//    var isValidNumber: Bool {
+//        let num = Float(self)
+//        return num != nil && num! >= 0.0
+//    }
+//}

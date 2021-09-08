@@ -23,16 +23,16 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ClassTracker" translatesAutoresizingMaskIntoConstraints="NO" id="8w6-m9-haP">
-                                    <rect key="frame" x="10" y="10" width="370" height="59"/>
+                                    <rect key="frame" x="10" y="10" width="370" height="50"/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* Letter Grades are following Ontario Grading Standards" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2z-RX-vUS">
-                                    <rect key="frame" x="10" y="78" width="370" height="12"/>
+                                    <rect key="frame" x="10" y="69" width="370" height="12"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cumalitive Average: 100.0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yo-Cl-W82">
-                                    <rect key="frame" x="97.666666666666686" y="100" width="195" height="17"/>
+                                    <rect key="frame" x="97.666666666666686" y="91" width="195" height="17"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                     <color key="textColor" red="0.95929354430000002" green="0.74003082509999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -383,7 +383,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ClassTracker" width="346" height="59"/>
+        <image name="ClassTracker" width="353" height="50"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

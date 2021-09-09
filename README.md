@@ -10,7 +10,7 @@ Class Tracker allows students of all levels to easily track and compute their cu
 
 - Example Home Screen (Cumulative Average calculated on top)
 
-![demo-homescreen](resources/exampleHomeScreen.png)
+![demo-homescreen](resources/exampleHomeScreen.PNG)
 
 - Adding a new test score to a class
 

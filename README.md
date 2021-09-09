@@ -28,6 +28,8 @@ Class Tracker allows students of all levels to easily track and compute their cu
 
 ![demo-validation](resources/validation.gif) | ![demo-validation](resources/validation2.gif)
 
+![demo](resources/AddNewTestScore.mp4)
+
 
 ## To Do List
 

@@ -1,6 +1,6 @@
 # Class-Tracker
 
-Class Tracker allows students of all levels to easily track and compute their current grade for every class. Simply enter your class name, syllabus items + their respecitve weights to get a clear view of your current grade. No more long complex computations to figure out your current grade / future grade depending on if you get `x %` on the final. You can also say goodbye to waiting days or even weeks for teachers to email out updated marks. Class Tracker also intelligently adjusts marks for classes where the weight of all syllabus items do not add to 100. 
+Class Tracker allows students of all levels to easily track and compute their current grade for every class. Simply enter your class name, syllabus items + their respecitve weights to get a clear view of your current grade. No more long complex computations to figure out your current grade / future grade depending on if you get `x %` on the final. You can also say goodbye to waiting days or even weeks for teachers to email out updated marks. Class Tracker also intelligently adjusts marks for classes where the weight of all syllabus items do not add to 100. This application utilizes the `Realm Swift` database to store data such as class name, test scores etc.
 
 
 ## Demo
